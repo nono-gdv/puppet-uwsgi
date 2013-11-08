@@ -25,5 +25,6 @@ define uwsgi::manage_app(
     mode    => '0644',
     content => template("${module_name}/${conf_template}"),
     require => Package[$::uwsgi::package_name],
+    notify  => Service[$::uwsgi::service_name],
   }
 }
